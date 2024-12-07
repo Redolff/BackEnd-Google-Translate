@@ -10,7 +10,10 @@ const port = 3001
 // Configuracion basica de Cors (permite cualquier origen)
 app.use(cors())
 
-app.use(express.json())
+app.use(express.json({
+    origin: ['http://localhost:5173', 'https://googletranslate-nu.vercel.app/'],
+    methods: ['GET', 'POST', 'PUT', 'DELETE']
+}))
 
 // Api cohere-ai
 app.post('/api/cohere', async (req, res) => {
@@ -32,7 +35,6 @@ app.post('/api/cohere', async (req, res) => {
                 'Content-Type': 'application/json',
             }
         })
-
         res.json({ result: response.data.text })
     }
     catch(error){
