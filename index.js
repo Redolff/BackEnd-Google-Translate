@@ -8,12 +8,13 @@ dotenv.config()
 const app = express()
 const port = 3001
 // Configuracion basica de Cors (permite cualquier origen)
-app.use(cors())
-
-app.use(express.json({
+app.use(cors({
     origin: ['http://localhost:5173', 'https://googletranslate-nu.vercel.app/'],
-    methods: ['GET', 'POST', 'PUT', 'DELETE'] 
+    methods: ['GET', 'POST', 'PUT', 'DELETE'],
+    allowedHeaders: ['Content-Type', 'Authorization']
 }))
+
+app.use(express.json())
 
 // Api cohere-ai
 app.post('/api/cohere', async (req, res) => {
