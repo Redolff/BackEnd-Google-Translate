@@ -12,7 +12,7 @@ app.use(cors())
 
 app.use(express.json({
     origin: ['http://localhost:5173', 'https://googletranslate-nu.vercel.app/'],
-    methods: ['GET', 'POST', 'PUT', 'DELETE']
+    methods: ['GET', 'POST', 'PUT', 'DELETE'] 
 }))
 
 // Api cohere-ai
