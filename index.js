@@ -15,7 +15,6 @@ app.use(cors({
 }))
 
 app.use(express.json())
-app.options('*', cors()); // Habilita CORS para todas las rutas
 
 // Api cohere-ai
 app.post('/api/cohere', async (req, res) => {
